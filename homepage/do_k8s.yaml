@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: koax_home
+  name: koaxhome
 spec:
   selector:
     matchLabels:
-      app: koax_home
+      app: koaxhome
   template:
     metadata:
       labels:
-        app: koax_home
+        app: koaxhome
     spec:
       containers:
       - name: app
-        image: illuhins/koax_home:latest
+        image: iluhins/koaxhome:latest
         resources:
           limits:
             memory: "128Mi"
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: koax_home_svc
+  name: koaxhome-svc
 spec:
   selector:
-    app: koax_home
+    app: koaxhome
   ports:
   - port: 80
     targetPort: 80
-
+  type: LoadBalancer
